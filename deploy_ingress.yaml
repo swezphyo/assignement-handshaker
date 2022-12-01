@@ -55,9 +55,6 @@ kind: Ingress
 metadata:
   name: ingress-service
 spec: 
-  template:
-    spec:
-      hostNetwork: true
   rules:
   - http:
       paths:
