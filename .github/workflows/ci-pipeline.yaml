@@ -38,4 +38,5 @@ jobs:
         run: |
          docker ps -a
          kubectl get service -n ingress-nginx
-         curl -k http://localhost:80/bar
+         docker exec kind-control-plane iptables-save | grep 80
+         kubectl get pods -A
