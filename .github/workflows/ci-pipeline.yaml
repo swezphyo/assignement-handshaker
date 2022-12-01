@@ -24,7 +24,7 @@ jobs:
 
       - name: Check Cluster Info
         run: |
-          kubectl cluster-info
+          kubectl cluster-info --context kind-kind
       
       - name: Deploy Ingress controller
         run: |
