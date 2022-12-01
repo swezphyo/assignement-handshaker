@@ -25,6 +25,7 @@ jobs:
           kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
           docker ps -a
           kubectl describe node kind-worker 
+          kubectl describe node kind-worker-2
 
       - name: Check Cluster Info
         run: |
