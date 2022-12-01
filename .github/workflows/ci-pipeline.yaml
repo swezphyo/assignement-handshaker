@@ -23,7 +23,8 @@ jobs:
         run: |
           kind delete cluster
           kind create cluster  --config=multinodes.yaml
-          systemctl status kubelet
+          kubectl describe nodes
+          kubectl describe node kind-worker 
 
       - name: Check Cluster Info
         run: |
