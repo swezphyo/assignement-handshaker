@@ -37,7 +37,8 @@ jobs:
         run: |
          docker ps -a
          kubectl get service -n ingress-nginx
-         docker exec kind-control-plane iptables-save | grep 80
+         kubectl get nodes
+         kubectl taint nodes --all node-role.kubernetes.io/master-
          kubectl get pods -A
          kubectl describe pod foo-app
          curl localhost/foo
