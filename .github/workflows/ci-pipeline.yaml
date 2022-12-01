@@ -28,7 +28,7 @@ jobs:
       
       - name: Deploy Ingress controller
         run: |
-          kubectl apply -f https://raw.githubusercbuild-robotontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+          kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
           kubectl create serviceaccount build-robot
           kubectl get serviceaccounts
           kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission
