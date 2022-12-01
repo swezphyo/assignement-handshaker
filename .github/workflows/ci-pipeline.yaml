@@ -23,8 +23,7 @@ jobs:
         run: |
           kind delete cluster
           kind create cluster  --config=multinodes.yaml
-          kubectl describe nodes
-          kubectl taint node kind-worker node.kubernetes.io/not-ready:NoSchedule -
+          kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/2140ac876ef134e0ed5af15c65e414cf26827915/Documentation/kube-flannel.yml
           kubectl describe node kind-worker 
 
       - name: Check Cluster Info
