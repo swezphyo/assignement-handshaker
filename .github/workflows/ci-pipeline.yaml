@@ -15,7 +15,7 @@ jobs:
       - name: check docker status
         run: |
               systemctl status docker
-               apt-get update && apt-get install -y kubelet kubeadm kubernetes-cni
+              sudo apt-get update && apt-get install -y kubelet kubeadm kubernetes-cni
 
       - name: Checkout
         uses: actions/checkout@v3
@@ -28,5 +28,6 @@ jobs:
         run: |
           kubectl cluster-info --context kind-kind
           kubectl get nodes
+          kubectl describe node kind-control-plane
       
       
