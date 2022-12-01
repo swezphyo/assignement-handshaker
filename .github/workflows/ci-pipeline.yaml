@@ -23,7 +23,7 @@ jobs:
         run: |
           kind create cluster  --config=multinodes.yaml
           kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
-          screen ~/Library/Containers/com.docker.docker/Data/vms/0/tty
+          docker ps -a
           kubectl describe node kind-worker 
 
       - name: Check Cluster Info
