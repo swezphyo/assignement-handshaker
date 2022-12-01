@@ -15,9 +15,9 @@ jobs:
       - name: install
         run: |
               sudo apt install docker.io
-              sudo apt install golang-go
-              go install sigs.k8s.io/kind@v0.17.0
-              systemctl start docker
+              #sudo apt install golang-go
+              #go install sigs.k8s.io/kind@v0.17.0
+              #systemctl start docker
 
       - name: Checkout
         uses: actions/checkout@v3
