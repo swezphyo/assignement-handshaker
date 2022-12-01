@@ -21,7 +21,7 @@ jobs:
 
       - name: Create kind cluster
         run: |
-          kubectl -n kube-system apply -f https://raw.githubusercontent.com/coreos/flannel/bc79dd1505b0c8681ece4de4c0d86c5cd2643275/Documentation/kube-flannel.yml
+          kubectl apply -f https://docs.projectcalico.org/manifests/calico-typha.yaml
           kind create cluster  --config=multinodes.yaml
           kubectl describe node kind-worker 
 
