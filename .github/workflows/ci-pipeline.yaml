@@ -32,9 +32,7 @@ jobs:
       
       - name: Troubleshoot
         run: |
-          kubectl drain kind-control-plane
           kubectl drain kind-worker
-          kubectl delete node kind-control-plane
           kubectl delete node kind-worker
           kubeadm reset
           kubeadm init
