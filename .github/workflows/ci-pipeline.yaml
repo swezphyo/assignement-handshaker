@@ -36,5 +36,7 @@ jobs:
       
       - name: Run the results of foo and bar
         run: |
+         docker ps -a
+         kubectl get service -n ingress-nginx
          curl localhost/foo
-         curl localhost/bar
+         #curl localhost/bar
