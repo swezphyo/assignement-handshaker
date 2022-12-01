@@ -38,6 +38,5 @@ jobs:
         run: |
          docker ps -a
          kubectl get service -n ingress-nginx
-         docker run -p 8000:80 -d nginx
-         curl localhost:8000
+         curl http://foo.localhost
          #curl localhost/bar
