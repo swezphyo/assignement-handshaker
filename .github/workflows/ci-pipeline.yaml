@@ -21,7 +21,6 @@ jobs:
 
       - name: Create kind cluster
         run: |
-          kubectl apply -f https://docs.projectcalico.org/manifests/calico-typha.yaml
           kind create cluster  --config=multinodes.yaml
           kubectl describe node kind-worker 
 
