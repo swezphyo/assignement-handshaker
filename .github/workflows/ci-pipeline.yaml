@@ -15,6 +15,7 @@ jobs:
       - name: check docker status
         run: |
               systemctl status docker
+               apt-get update && apt-get install -y kubelet kubeadm kubernetes-cni
 
       - name: Checkout
         uses: actions/checkout@v3
@@ -22,28 +23,10 @@ jobs:
       - name: Create kind cluster
         run: |
           kind create cluster  --config=multinodes.yaml       
-          docker ps -a
-
 
       - name: Check Cluster Info
         run: |
           kubectl cluster-info --context kind-kind
           kubectl get nodes
       
-      - name: Deploy Ingress controller
-        run: |
-          kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
-          kubectl get serviceaccounts
-          #kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission
-          kubectl apply -f deploy_ingress.yaml
-      
-      - name: Run the results of foo and bar
-        run: |
-         docker ps -a
-         kubectl get service -n ingress-nginx
-         kubectl get nodes
-         #kubectl taint nodes --all node-role.kubernetes.io/master-
-         kubectl get pods -A
-         #kubectl describe pod foo-app
-         curl localhost/foo
       
