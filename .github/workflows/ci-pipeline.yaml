@@ -30,4 +30,15 @@ jobs:
           kubectl describe node kind-control-plane
           kubectl describe node kind-worker
       
+      - name: Troubleshoot
+        run: |
+          kubectl drain kind-control-plane
+          kubectl drain kind-worker
+          kubectl delete node kind-control-plane
+          kubectl delete node kind-worker
+          kubeadm reset
+          kubeadm init
+          kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+          kubectl describe nodes
+      
       
