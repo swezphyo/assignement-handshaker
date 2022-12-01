@@ -7,7 +7,6 @@ metadata:
   labels:
     app: foo
 spec:
-  serviceAccountName: default
   containers:
   - name: foo-app
     image: hashicorp/http-echo:0.2.3
@@ -32,7 +31,6 @@ metadata:
   labels:
     app: bar
 spec:
-  serviceAccountName: default
   containers:
   - name: bar-app
     image: hashicorp/http-echo:0.2.3
