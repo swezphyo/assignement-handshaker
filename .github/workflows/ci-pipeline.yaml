@@ -34,5 +34,7 @@ jobs:
           kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission
           kubectl apply -f deploy_ingress.yaml
       
-      - name: Run a one-line script
-        run: echo Thank you!
+      - name: Run the results of foo and bar
+        run: |
+         curl localhost/foo
+         curl localhost/bar
