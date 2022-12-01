@@ -54,7 +54,10 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-service
-spec:
+spec: 
+  template:
+    spec:
+      hostNetwork: true
   rules:
   - http:
       paths:
