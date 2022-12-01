@@ -21,9 +21,9 @@ jobs:
 
       - name: Create kind cluster
         run: |
-          kind create cluster  --config=multinodes.yaml
           curl https://docs.projectcalico.org/manifests/calico.yaml -O
           kubectl apply -f calico.yaml
+          kind create cluster  --config=multinodes.yaml
           kubectl describe node kind-worker 
 
       - name: Check Cluster Info
