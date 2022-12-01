@@ -38,5 +38,5 @@ jobs:
         run: |
          docker ps -a
          kubectl get service -n ingress-nginx
-         curl https://google.com:443
+         curl https://localhost/bar
          #curl -L localhost/bar
