@@ -15,6 +15,7 @@ jobs:
       - name: check docker status
         run: |
               systemctl status docker
+              sudo su
               sudo apt-get update && apt-get install -y kubernetes-cni
 
       - name: Checkout
