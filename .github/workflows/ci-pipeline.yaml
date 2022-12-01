@@ -40,6 +40,5 @@ jobs:
          kubectl get service -n ingress-nginx
          docker exec kind-control-plane iptables-save | grep 80
          kubectl get pods -A
-         sleep 6s
-         kubectl get pods -A
+         kubectl describe pod foo-app
          curl localhost/foo
