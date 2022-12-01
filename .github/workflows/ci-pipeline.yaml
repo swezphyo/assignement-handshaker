@@ -22,7 +22,7 @@ jobs:
       - name: Create kind cluster
         run: |
           kind delete cluster
-          kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/2140ac876ef134e0ed5af15c65e414cf26827915/Documentation/kube-flannel.yml
+          kubectl -n kube-system apply -f https://raw.githubusercontent.com/coreos/flannel/bc79dd1505b0c8681ece4de4c0d86c5cd2643275/Documentation/kube-flannel.yml
           kind create cluster  --config=multinodes.yaml
           kubectl describe node kind-worker 
 
