@@ -24,6 +24,7 @@ jobs:
           kind delete cluster
           kind create cluster  --config=multinodes.yaml
           kubectl describe nodes
+          kubectl taint node kind-worker node.kubernetes.io/not-ready:NoSchedule -
           kubectl describe node kind-worker 
 
       - name: Check Cluster Info
