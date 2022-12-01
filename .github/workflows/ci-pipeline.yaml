@@ -25,6 +25,7 @@ jobs:
       - name: Check Cluster Info
         run: |
           kubectl cluster-info --context kind-kind
+          kubectl get nodes
       
       - name: Deploy Ingress controller
         run: |
@@ -40,5 +41,5 @@ jobs:
          kubectl get nodes
          kubectl taint nodes --all node-role.kubernetes.io/master-
          kubectl get pods -A
-         kubectl describe pod foo-app
-         curl localhost/foo
+         #kubectl describe pod foo-app
+         #curl localhost/foo
