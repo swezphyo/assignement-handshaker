@@ -12,7 +12,6 @@ metadata:
     app: foo
 spec:
   serviceAccountName: build-robot
-  automountServiceAccountToken: false
   containers:
   - name: foo-app
     image: hashicorp/http-echo:0.2.3
@@ -38,7 +37,6 @@ metadata:
     app: bar
 spec:
   serviceAccountName: build-robot
-  automountServiceAccountToken: false
   containers:
   - name: bar-app
     image: hashicorp/http-echo:0.2.3
