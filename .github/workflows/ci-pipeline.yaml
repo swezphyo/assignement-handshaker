@@ -23,9 +23,10 @@ jobs:
         run: |
           kind create cluster  --config=multinodes.yaml
           kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+          kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/2140ac876ef134e0ed5af15c65e414cf26827915/Documentation/kube-flannel.yml          
           docker ps -a
           kubectl describe node kind-worker 
-          kubectl describe node kind-worker-2
+          kubectl describe node kind-worker2
 
       - name: Check Cluster Info
         run: |
