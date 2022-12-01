@@ -1,8 +1,4 @@
 apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: build-robot
-automountServiceAccountToken: false
 
 kind: Pod
 apiVersion: v1
