@@ -12,12 +12,8 @@ jobs:
   create-cluster:
     runs-on: ubuntu-latest
     steps:
-      - name: install
+      - name: check docker status
         run: |
-              #sudo apt-get update && sudo apt-get upgrade
-              #sudo apt install docker.io
-              #sudo apt install golang-go
-              #go install sigs.k8s.io/kind@v0.17.0
               systemctl status docker
 
       - name: Checkout
@@ -26,9 +22,14 @@ jobs:
       - name: Create kind cluster
         run: kind create cluster --config=multinodes.yaml
 
-      - name: Test
+      - name: Check Cluster Info
         run: |
           kubectl cluster-info
       
+      - name: Deploy Ingress controller
+        run: |
+          kubectl apply -f deploy_ingress.yaml
+          kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+      
       - name: Run a one-line script
-        run: echo Hello, world!
+        run: echo Thank you!
