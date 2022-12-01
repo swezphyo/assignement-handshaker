@@ -1,3 +1,9 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: build-robot
+automountServiceAccountToken: false
+
 kind: Pod
 apiVersion: v1
 metadata:
@@ -5,6 +11,8 @@ metadata:
   labels:
     app: foo
 spec:
+  serviceAccountName: build-robot
+  automountServiceAccountToken: false
   containers:
   - name: foo-app
     image: hashicorp/http-echo:0.2.3
@@ -29,6 +37,8 @@ metadata:
   labels:
     app: bar
 spec:
+  serviceAccountName: build-robot
+  automountServiceAccountToken: false
   containers:
   - name: bar-app
     image: hashicorp/http-echo:0.2.3
