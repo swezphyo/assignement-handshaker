@@ -38,5 +38,5 @@ jobs:
         run: |
          docker ps -a
          kubectl get service -n ingress-nginx
-         docker exec -it kind-control-plane curl localhost/foo
+         docker exec kind-control-plane curl localhost/foo
          #curl localhost/bar
