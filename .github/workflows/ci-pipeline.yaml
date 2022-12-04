@@ -32,7 +32,7 @@ jobs:
       
       - name: Calico
         run: |
-          kubectl apply -f https://docs.projectcalico.org/v3.23/manifests/calico.yaml
+          kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.24.5/manifests/calicoctl.yaml
           kubectl get nodes
           
       
