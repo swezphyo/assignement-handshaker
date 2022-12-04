@@ -29,11 +29,10 @@ jobs:
           kubectl get nodes
           kubectl describe node kind-control-plane
           kubectl describe node kind-worker
-          kubectl apply -f https://docs.projectcalico.org/v3.11/manifests/calico.yaml
       
       - name: Calico
         run: |
-          kubectl apply -f https://docs.projectcalico.org/v3.11/manifests/calico.yaml
+          kubectl apply -f https://docs.projectcalico.org/v3.23/manifests/calico.yaml
           kubectl get nodes
           
       
