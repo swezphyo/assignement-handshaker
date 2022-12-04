@@ -28,13 +28,22 @@ jobs:
           kubectl cluster-info --context kind-kind
           kubectl get nodes
           kubectl describe node kind-control-plane
-          kubectl describe node kind-worker
       
-      - name: Calico
+      - name: Install Calico
         run: |
           kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.24.5/manifests/calicoctl.yaml
-          kubectl describe node kind-worker
-          
+      
+      - name: Deploy Ingress controller
+        run: |
+          kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+          kubectl get serviceaccounts
+          kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission
+          kubectl apply -f deploy_ingress.yaml
+      
+      - name: Run the results of foo and bar
+        run: |
+         curl localhost/foo
+         echo "DONE"          
       
 
       
